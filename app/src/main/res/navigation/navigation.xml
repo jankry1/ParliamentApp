@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
+    app:startDestination="@id/partyFragment">
+
+    <fragment
+        android:id="@+id/partyFragment"
+        android:name="com.example.parliamentapp.fragments.Party"
+        android:label="PartyFragment" >
+        <action
+            android:id="@+id/action_partyFragment_to_membersOfPartyFragment"
+            app:destination="@id/membersOfPartyFragment"
+            app:popUpTo="@id/partyFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/memberFragment"
+        android:name="com.example.parliamentapp.fragments.Member"
+        android:label="MemberFragment" >
+        <argument
+            android:name="memberName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_memberFragment_to_partyFragment"
+            app:destination="@id/partyFragment"
+            app:popUpTo="@id/partyFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/membersOfPartyFragment"
+        android:name="com.example.parliamentapp.fragments.MembersOfParty"
+        android:label="MembersOfPartyFragment" >
+        <argument
+            android:name="partyName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_membersOfPartyFragment_to_memberFragment"
+            app:destination="@id/memberFragment"
+            app:popUpTo="@id/membersOfPartyFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
